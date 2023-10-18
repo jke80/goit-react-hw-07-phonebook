@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Form } from './Form/Form';
 import { ContactList } from './ContactList/ContactList';
@@ -7,23 +6,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts.thunk';
 import { getContacts } from 'redux/selectors';
+import { Layout } from './Layout/Layout';
 
 export const App = () => {
-  
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
-  
- useEffect(()=>{
+
+  useEffect(() => {
     dispatch(fetchContacts());
-  },[dispatch]);
+  }, [dispatch]);
 
   return (
-    <div>
+    <Layout>
       <h1>Phonebook</h1>
       <Form />
       {!!contacts?.length && <Filter />}
       {!!contacts?.length && <h2>Contacts</h2>}
       <ContactList />
-    </div>
+    </Layout>
   );
 };

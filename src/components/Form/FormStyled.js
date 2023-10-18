@@ -6,7 +6,7 @@ export const FormStyled = styled.form`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  min-width: 300px;
+  width: 300px;
 
   label {
     padding: 10px 0;
